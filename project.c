@@ -224,7 +224,66 @@ int main(int argc, char *argv[])
         
         case 4:
             /* Almost Sorted Array */
+            for(int i=0; i<ar_size; i++)
+            {
+                B[i] = rand()%100;
+            }
+            quick_sort(B,0,ar_size-1);
+            for(int i=0; i<(ar_size*0.2); i++)
+            {
+                swap((B+(rand()%ar_size)),(B+(rand()%ar_size)));
+            }
+            printf("\nSize of Array \t: %d \n",ar_size);
 
+            for(int i=0; i<ar_size; i++)
+            {
+                A[i] = B[i];
+            } 
+            start_time = clock();
+            bubble_sort(A,ar_size);
+            end_time = clock();
+            funcn_time = ((double)(end_time - start_time ) )/ CLOCKS_PER_SEC;
+            printf("Bubble Sort\t\t  : %f\n",funcn_time);
+
+            for(int i=0; i<ar_size; i++)
+            {
+                A[i] = B[i];
+            } 
+            start_time = clock();
+            selection_sort(A,ar_size);
+            end_time = clock();
+            funcn_time = ((double)(end_time - start_time ) )/ CLOCKS_PER_SEC;
+            printf("Selection Sort\t\t  : %f\n",funcn_time);
+
+            for(int i=0; i<ar_size; i++)
+            {
+                A[i] = B[i];
+            } 
+            start_time = clock();
+            insertion_sort(A,ar_size);
+            end_time = clock();
+            funcn_time = ((double)(end_time - start_time ) )/ CLOCKS_PER_SEC;
+            printf("Insertion Sort\t\t  : %f\n",funcn_time);
+
+            for(int i=0; i<ar_size; i++)
+            {
+                A[i] = B[i];
+            } 
+            start_time = clock();
+            merge_sort(A,0,ar_size-1);
+            end_time = clock();
+            funcn_time = ((double)(end_time - start_time ) )/ CLOCKS_PER_SEC;
+            printf("Merge Sort\t\t  : %f\n",funcn_time);
+
+            for(int i=0; i<ar_size; i++)
+            {
+                A[i] = B[i];
+            } 
+            start_time = clock();
+            quick_sort(A,0,ar_size-1);
+            end_time = clock();
+            funcn_time = ((double)(end_time - start_time ) )/ CLOCKS_PER_SEC;
+            printf("Quick Sort\t\t  : %f\n",funcn_time);
 
             break;
 
@@ -232,7 +291,7 @@ int main(int argc, char *argv[])
             printf("Invalid Entry\n");
             goto revaluate;
         }
-    
+        
     return 0;
 }
 
